@@ -1,3 +1,7 @@
+******
+python3 -m pip install -I --dry-run ansible==7.2.0 molecule==4.0.4 ansible-core==2.14.2 molecule-plugins[docker]
+******
+
 (ansible-deps) [tsweets@keystone ansible-deps]$ python3 -m pip install -I --dry-run ansible==7.2.0 molecule==4.0.4 ansible-core==2.14.2 molecule-plugins[docker]
 Collecting ansible==7.2.0
   Using cached ansible-7.2.0-py3-none-any.whl (42.9 MB)
