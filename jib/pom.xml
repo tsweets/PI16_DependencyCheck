@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.beer30</groupId>
+	<artifactId>realworld</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>Jib Dep Test</name>
+	<description>Trying to figure out the deps for jib</description>
+	<properties>
+		<jib-maven-plugin.version>3.4.0</jib-maven-plugin.version>
+	</properties>
+	<dependencies>
+    </dependencies>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>com.google.cloud.tools</groupId>
+				<artifactId>jib-maven-plugin</artifactId>
+				<version>${jib-maven-plugin.version}</version>
+				<configuration>
+					<from>
+						<image>openjdk:17-jdk-alpine</image>
+					</from>
+					<to>
+						<image>tsweets/jib-test:latest</image>
+					</to>
+					<container>
+						<entrypoint>
+							<shell>sh</shell>
+							<option>-c</option>
+							<arg>/entrypoint.sh</arg>
+						</entrypoint>
+						<ports>
+							<port>8080</port>
+						</ports>
+						<environment>
+							<SPRING_OUTPUT_ANSI_ENABLED>ALWAYS</SPRING_OUTPUT_ANSI_ENABLED>
+						</environment>
+						<creationTime>USE_CURRENT_TIMESTAMP</creationTime>
+					</container>
+					<extraDirectories>
+						<paths>src/main/jib</paths>
+						<permissions>
+							<permission>
+								<file>/entrypoint.sh</file>
+								<mode>755</mode>
+							</permission>
+						</permissions>
+					</extraDirectories>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
